@@ -22,6 +22,10 @@ img{
 }
 
 
+select{
+	padding: 15px 40px 15px 40px;
+}
+
 
 
 /*Navbar Styling*/
@@ -33,7 +37,7 @@ img{
 	 overflow: hidden;
 	 position: fixed;
 	 top:0;
-	 z-index: 2
+	 z-index: 4
 }
 
 .navbarmenu a {
@@ -91,7 +95,9 @@ tbody {
     vertical-align: top;
 }
 
-.table{padding-top: 85px;
+.table{
+    position: relative;
+    padding-top: 85px;
     padding-bottom: 20px;}
 
 
@@ -147,12 +153,13 @@ section{
 	background-color: white;
 	}
 .container{
-	width: 100%;
-	display: flex;                  /* establish flex container */
-  flex-direction: row;            /* default value; can be omitted */
-  flex-wrap: nowrap;              /* default value; can be omitted */
-  justify-content: space-between;
-	text-align: center;
+	margin: auto;
+    position: relative;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 .menuimg{
 
@@ -162,6 +169,12 @@ section{
 	float: left;
 	position: relative;
 }
+
+.menuimg img{
+    width: 300px;
+}
+
+
 button{
 	margin: 0px auto;
 
@@ -234,28 +247,43 @@ button{
 
 /*  Styling detail page.html */
 
-#detail-page img{
+#image{
 	float: left;
 	padding: 100px 50px 50px 200px;
 }
 
+.image{
+   /* float: left;*/
+}
+
 #detail-page p {
-	 margin-top: 80px;
+
+    #detail-page p {
+    width: 350px;
+    padding-left: 0px;
+
+}
+
+creative.css:607
+.car
+
+
+	/* margin-top: 80px;
     line-height: 25px;
     margin-left: 40px;
     text-align: left;
     width: 350px;
-    float: left;
+    float: left;*/
 
 }
 
 .back{
-	position: relative;
-    top: 145px;
-    float: left;
+	    position: relative;
+    top: 60px;
+    /* float: left; */
     /* margin-top: 42px; */
     /* margin: 0px auto; */
-    left: -159px;
+    left: -550px;
 }
 
 /*  Styling table detail page.html */
@@ -280,9 +308,58 @@ tbody {
     padding-bottom: 20px;}
 
 /* Button on detail page styling*/
-#menubutton{
+#addtocart{
 	float: left;
-	margin-left: 125px; 
+    background-color: orange;
+
+	
+}
+
+
+
+
+
+/* Dropdown in detail page*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+
+
+
+
+#Dropdown{	margin: 0px auto;
+
+	padding: 15px 40px 15px 40px;
+	border: solid;
+	background-color: white;
+	border-radius: 4px;
+	border-color: grey;
+	font-size: 14px; 
+	text-align: center;
+	border-width: 1px;
+
 }
 
 
@@ -291,4 +368,293 @@ tbody {
 
 
 
+.multiselect {
+  width: 200px;
+}
 
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#flavourlist {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#flavourlist label {
+  display: block;
+}
+
+#flavourlist label:hover {
+  background-color: #1e90ff;
+}
+
+
+
+
+
+#quantity {
+     list-style-type:none;
+     text-align: center;
+     padding:0;
+}
+
+#quantity li {
+     float:left;
+     margin:-20px 5px 0 0;
+    width:125px;
+    height:40px;
+    position:relative;
+}
+
+#quantity label, #quantity input {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+#quantity input[type="radio"] {
+    opacity:0.011;
+    z-index:2;
+}
+
+#quantity input[type="radio"]:checked + label {
+    background:yellow;
+}
+
+#quantity label {
+     padding:5px;
+     border:1px solid #CCC; 
+     cursor:pointer;
+    z-index:3;
+}
+
+#quantity label:hover {
+     background:#DDD;
+}
+
+
+
+/*Carousal*/
+
+#slider {
+    text-align: center;
+    top: 60px;
+    padding-bottom: 100px;
+    float: left;
+    position: relative;
+width: 72%;
+  left: 200px;
+  height: 100%;
+  overflow: hidden;
+ }
+
+
+#slider ul  {
+    
+    
+    position: relative;
+    list-style: none;
+    height: 100%;
+    width: 15000%;
+    padding: 0;
+    margin: 0;
+    transition: all 750ms ease;
+    left: 0;
+}
+    
+#slider li {
+      position: relative;
+      height: 100%;
+      width: calc(59vw);
+      float: left;
+      
+    }
+
+/*
+  #prev, #next{
+    width: 757px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    margin-left: 14%;
+    /* text-shadow: 0 0 20px rgba(0,0,0,0.6); */
+    /* text-align: center; 
+    color: white; 
+    text-decoration: none;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    transition: all 150ms ease;
+    &:hover {
+      background-color: rgba(0,0,0,0.5);
+      text-shadow: 0;
+    }
+  }
+  #prev {  
+    left: 10px;
+  }
+  #next {
+    right: 10px;
+  }
+}
+*/
+
+#prev, #next{
+    width: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    text-shadow: 0 0 20px rgba(0,0,0,0.6);
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 150ms ease;
+    &:hover {
+      background-color: rgba(0,0,0,0.5);
+      text-shadow: 0;
+    }
+  }
+  #prev {  
+    left: 0px;
+  }
+  #next {
+    right: 10px;
+  }
+
+
+#status{
+ margin-top: 3%;
+ text-align: center;
+}
+
+#second{
+ margin-top: 3%;
+ text-align: center;
+}
+
+
+
+
+
+hr {
+    width: 50%;
+    margin-top: 2%;
+}
+
+}
+
+
+
+
+ul {
+    padding: 100px;
+    left: 20%;
+}
+
+
+.liClass{
+    padding: 20px;
+}
+
+
+.delete{
+    padding: 10px;
+    float: right;
+    margin-right: 330px;
+}
+
+
+
+
+
+#selected{
+    display: none;
+    color: green;
+}
+
+
+
+
+
+#wishlist{
+    margin-left: 10px;
+}
+
+
+
+
+#total{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: none;
+}
+
+
+
+#status li{
+    text-align: left;
+}
+
+
+
+
+
+#cost{
+    font-size: 24px;
+
+}
+
+
+
+.carousaltext{
+    text-align: left;
+    font-size: 18px;
+}
+
+
+#carousal-heading{
+    font-weight: 300;
+    text-align: center;
+}
+
+
+ .centre-align{
+    text-align: center;
+}
+
+#menubutton{
+    margin-top: 40px;
+}
+
+.justify{
+    text-align: justify;}
+
+
+.text-white{color: white;}
+
+
+
+.detail-page-img img{
+width: 200px;
+}
