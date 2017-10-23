@@ -2,6 +2,7 @@
 $(document).ready(function(){
 
 
+
 	//By default, on load, store Single roll as the choosen option
 	localStorage.setItem("pack", "Single roll");	
 
@@ -82,12 +83,14 @@ $(document).ready(function(){
 	   if(pack=="Single roll")
 	    	{
 	    	alert(pack+ " " + "has been added to your cart");
+	    	document.getElementById("selected").style.display="block";
+	    	document.getElementById("selected").innerHTML="You have selected a " + pack + "and you have "+  JSON.parse(localStorage.getItem("listData")).length  + "  items in your cart" 
 	    	}
 	   
 	    else{
 	    	alert(pack+ " : " + item + " " + "has been added to your cart");
 	    	document.getElementById("selected").style.display="block";
-	    	document.getElementById("selected").innerHTML="You have selected a " + pack+ " " +item;
+	    	document.getElementById("selected").innerHTML="You have selected a " + pack+ " " + item + " and you have "+  JSON.parse(localStorage.getItem("listData")).length  + "  items in your cart" ;
 	    	}
 
 	}
@@ -125,128 +128,132 @@ $(document).ready(function(){
 
 	}
 
-//Dropdown disabled on clicking single roll
-function disableDropdown(){
-	document.getElementById("mySelect").disabled= true;
-	document.getElementById("flavourlist").style.display="none";
-} 
+	//Dropdown disabled on clicking single roll
+	function disableDropdown(){
+		document.getElementById("mySelect").disabled= true;
+		document.getElementById("flavourlist").style.display="none";
+	} 
 
 
-//Dropdown enabled on clicking pack of 6 or 12
-function enableDropdown(){
-	document.getElementById("mySelect").disabled= false;
-	document.getElementById("flavourlist").style.display="none";
-}
-
-//Show dropdown on clicking the selector 
-var expanded = false;
-function showCheckboxes() {
-  	var flavourlist = document.getElementById("flavourlist");
-  	if (!expanded &&  document.getElementById("mySelect").disabled == false) {
-    	flavourlist.style.display = "block";
-    	expanded = true;
-  	} 
-  	else {
-    flavourlist.style.display = "none";
-    expanded = false;
-  	}
-		
-	// Check if limit is 2 		
-	checkboxlimit(document.getElementsByClassName("checkbox"));
-}
-    
-
-
-function checkboxlimit(checkgroup){
-	var checkgroup=checkgroup;
-	var limit=2
-	for (var i=0; i<checkgroup.length; i++){
-		checkgroup[i].onclick=function(){
-			var checkedcount=0
-			for (var i=0; i<checkgroup.length; i++)
-			checkedcount+=(checkgroup[i].checked);
-	        
-	        if (checkedcount>limit){
-			alert("You can only select a maximum of "+limit+" flavours");
-			this.checked=false
-			}
-		}
-			
+	//Dropdown enabled on clicking pack of 6 or 12
+	function enableDropdown(){
+		document.getElementById("mySelect").disabled= false;
+		document.getElementById("flavourlist").style.display="none";
 	}
-}
 
-//Saving users selections in the local storage 
-function save(checkgroup){
-    var checkgroup=checkgroup;
-    var item= "Original Cinnamon roll"
-	for (var i=0; i<checkgroup.length; i++){
-	if(checkgroup[i].checked){
-		var item=item + "  "+  checkgroup[i].value;
+	//Show dropdown on clicking the selector 
+	var expanded = false;
+	function showCheckboxes() {
+	  	var flavourlist = document.getElementById("flavourlist");
+	  	if (!expanded &&  document.getElementById("mySelect").disabled == false) {
+	    	flavourlist.style.display = "block";
+	    	expanded = true;
+	  	} 
+	  	else {
+	    flavourlist.style.display = "none";
+	    expanded = false;
+	  	}
+			
+		// to ensure that only 2 are selected from the dropdown	
+		checkboxlimit(document.getElementsByClassName("checkbox"));
+	}
+	    
+
+	//takes the dropdown as the parameter
+	function checkboxlimit(checkgroup){
+		var checkgroup=checkgroup;
+		var limit=2
+
+		for (var i=0; i<checkgroup.length; i++){
+			checkgroup[i].onclick=function(){
+				var checkedcount=0
+				for (var i=0; i<checkgroup.length; i++)
+				checkedcount+=(checkgroup[i].checked);
+		        
+		        if (checkedcount>limit){
+				alert("You can only select a maximum of "+limit+" flavours");
+				this.checked=false
+				}
+			}
+				
 		}
-	}   
-	localStorage.setItem("item", JSON.stringify(item));
-}
+	}
+
+	//Saving users selections in the local storage 
+	function save(checkgroup){
+	    var checkgroup=checkgroup;
+	    var item= "Original Cinnamon roll"
+		for (var i=0; i<checkgroup.length; i++){
+		if(checkgroup[i].checked){
+			var item=item + "  "+  checkgroup[i].value;
+			}
+		}   
+		localStorage.setItem("item", JSON.stringify(item));
+	}
+
+		responsiveSlider(); 
+	 
+	  
+	//Function for the carousal
+	function responsiveSlider(){
+
+		var slider = document.getElementById("slider");
+		var sliderWidth = slider.offsetWidth;
+		var slideList = document.getElementById("slideWrap");
+		var count = 1;
+		var items = slideList.getElementsByClassName("slide").length;
+		var prev = document.getElementById("prev");
+		var next = document.getElementById("next");
+
+		window.addEventListener('resize', function() {
+			    sliderWidth = slider.offsetWidth;
+		});
 
 
-responsiveSlider();  
-  
-//Function for the carousal
-function responsiveSlider(){
+		//Clicking the back button on carousal
+		var prevSlide = function() {
+		    if(count > 1) {
+		      count = count - 2;
+		      slideList.style.left = "-" + count * sliderWidth + "px";
+		      count++;
+		    }
+		    else if(count = 1) {
+		      count = items - 1;
+		      slideList.style.left = "-" + count * sliderWidth + "px";
+		      count++;
+		    }
+			  
+		  };
 
-	var slider = document.getElementById("slider");
-	var sliderWidth = slider.offsetWidth;
-	var slideList = document.getElementById("slideWrap");
-	var count = 1;
-	var items = slideList.getElementsByClassName("slide").length;
-	var prev = document.getElementById("prev");
-	var next = document.getElementById("next");
+		//Clicking the next button on carousal
+		var nextSlide = function() {
+		    if(count < items) {
+		      slideList.style.left = "-" + count * sliderWidth + "px";
+		      count++;
+		    }
+		    else if(count = items) {
+		      slideList.style.left = "0px";
+		      count = 1;
+		    }
+			  
+		};
+			  
+		next.addEventListener("click", function() {
+		    nextSlide();
+		});
 
-	window.addEventListener('resize', function() {
-		    sliderWidth = slider.offsetWidth;
-	});
+		prev.addEventListener("click", function() {
+		    prevSlide();
+	    });
+
+		setInterval(function() {
+	    nextSlide()
+	    }, 2000);
 
 
-	//Clicking the back button on carousal
-	var prevSlide = function() {
-	    if(count > 1) {
-	      count = count - 2;
-	      slideList.style.left = "-" + count * sliderWidth + "px";
-	      count++;
-	    }
-	    else if(count = 1) {
-	      count = items - 1;
-	      slideList.style.left = "-" + count * sliderWidth + "px";
-	      count++;
-	    }
-		  
-	  };
+	}
 
-	//Clicking the next button on carousal
-	var nextSlide = function() {
-	    if(count < items) {
-	      slideList.style.left = "-" + count * sliderWidth + "px";
-	      count++;
-	    }
-	    else if(count = items) {
-	      slideList.style.left = "0px";
-	      count = 1;
-	    }
-		  
-	};
-		  
-	next.addEventListener("click", function() {
-	    nextSlide();
-	});
-
-	prev.addEventListener("click", function() {
-	    prevSlide();
-    });
-
-	$(window).scrollTop(tempScrollTop);
-
-}
-
-}); 
+	}); 
 
 
 

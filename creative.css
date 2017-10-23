@@ -68,7 +68,15 @@ a.active{color:black;}
 	float: right;
 	margin-right: 30px;
 }
-
+#number{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
 
 
 
@@ -210,6 +218,11 @@ button{
     float: left;
 
 }
+.justify{
+    text-align: justify;}
+
+
+.text-white{color: white;}
 
 
 
@@ -245,6 +258,9 @@ button{
 
 
 
+
+
+
 /*  Styling detail page.html */
 
 #image{
@@ -252,8 +268,8 @@ button{
 	padding: 100px 50px 50px 200px;
 }
 
-.image{
-   /* float: left;*/
+.detail-page-img img{
+width: 200px;
 }
 
 #detail-page p {
@@ -262,27 +278,13 @@ button{
     width: 350px;
     padding-left: 0px;
 
-}
-
-creative.css:607
-.car
-
-
-	/* margin-top: 80px;
-    line-height: 25px;
-    margin-left: 40px;
-    text-align: left;
-    width: 350px;
-    float: left;*/
-
+   }
 }
 
 .back{
-	    position: relative;
+	position: relative;
     top: 60px;
-    /* float: left; */
-    /* margin-top: 42px; */
-    /* margin: 0px auto; */
+    
     left: -550px;
 }
 
@@ -315,9 +317,11 @@ tbody {
 	
 }
 
+/*Increased font size for the cost*/
+#cost{
+    font-size: 24px;
 
-
-
+}
 
 /* Dropdown in detail page*/
 .dropdown {
@@ -347,8 +351,6 @@ tbody {
 .show {display:block;}
 
 
-
-
 #Dropdown{	margin: 0px auto;
 
 	padding: 15px 40px 15px 40px;
@@ -362,50 +364,7 @@ tbody {
 
 }
 
-
-
-
-
-
-
-.multiselect {
-  width: 200px;
-}
-
-.selectBox {
-  position: relative;
-}
-
-.selectBox select {
-  width: 100%;
-  font-weight: bold;
-}
-
-.overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-#flavourlist {
-  display: none;
-  border: 1px #dadada solid;
-}
-
-#flavourlist label {
-  display: block;
-}
-
-#flavourlist label:hover {
-  background-color: #1e90ff;
-}
-
-
-
-
-
+/*Styling of quantity*/
 #quantity {
      list-style-type:none;
      text-align: center;
@@ -449,9 +408,62 @@ tbody {
      background:#DDD;
 }
 
+/*Styling of select operator*/
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#flavourlist {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#flavourlist label {
+  display: block;
+}
+
+#flavourlist label:hover {
+  background-color: #1e90ff;
+}
+
+
+/*Confirmation message on detail page*/
+#selected{
+    display: none;
+    color: green;
+}
+
 
 
 /*Carousal*/
+
+.carousaltext{
+    text-align: left;
+    font-size: 18px;
+}
+
+
+#carousal-heading{
+    font-weight: 300;
+    text-align: center;
+}
 
 #slider {
     text-align: center;
@@ -480,41 +492,12 @@ width: 72%;
 }
     
 #slider li {
-      position: relative;
-      height: 100%;
-      width: calc(59vw);
-      float: left;
-      
+    left: 50px;
+    position: relative;
+    height: 100%;
+    width: calc(75vw);
+    float: left;
     }
-
-/*
-  #prev, #next{
-    width: 757px;
-    line-height: 50px;
-    border-radius: 50%;
-    font-size: 2rem;
-    margin-left: 14%;
-    /* text-shadow: 0 0 20px rgba(0,0,0,0.6); */
-    /* text-align: center; 
-    color: white; 
-    text-decoration: none;
-    position: absolute;
-    top: 55%;
-    transform: translateY(-50%);
-    transition: all 150ms ease;
-    &:hover {
-      background-color: rgba(0,0,0,0.5);
-      text-shadow: 0;
-    }
-  }
-  #prev {  
-    left: 10px;
-  }
-  #next {
-    right: 10px;
-  }
-}
-*/
 
 #prev, #next{
     width: 50px;
@@ -555,16 +538,16 @@ width: 72%;
 
 
 
-
+/*Styling of cart page*/
 hr {
     width: 50%;
     margin-top: 2%;
 }
 
-}
 
 
 
+/*Styling the lists on cart page*/
 
 ul {
     padding: 100px;
@@ -575,8 +558,35 @@ ul {
 .liClass{
     padding: 20px;
 }
+#status li{
+    text-align: left;
+}
 
+#wishlist{
+    margin-left: 10px;
+}
 
+.wishlistHeading{
+    font-weight: 300;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.centre-align{
+text-align: center;
+}
+
+#menubutton{
+    margin-top: 40px;
+}
+
+.backfromcart{
+    position: relative;
+    top: 175px;
+    left: 25%
+}
+
+/*Delete button on cart page*/
 .delete{
     padding: 10px;
     float: right;
@@ -584,77 +594,3 @@ ul {
 }
 
 
-
-
-
-#selected{
-    display: none;
-    color: green;
-}
-
-
-
-
-
-#wishlist{
-    margin-left: 10px;
-}
-
-
-
-
-#total{
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    display: none;
-}
-
-
-
-#status li{
-    text-align: left;
-}
-
-
-
-
-
-#cost{
-    font-size: 24px;
-
-}
-
-
-
-.carousaltext{
-    text-align: left;
-    font-size: 18px;
-}
-
-
-#carousal-heading{
-    font-weight: 300;
-    text-align: center;
-}
-
-
- .centre-align{
-    text-align: center;
-}
-
-#menubutton{
-    margin-top: 40px;
-}
-
-.justify{
-    text-align: justify;}
-
-
-.text-white{color: white;}
-
-
-
-.detail-page-img img{
-width: 200px;
-}
